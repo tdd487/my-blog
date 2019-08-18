@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:with="title='账单列表',active='article'">
+<header th:replace="admin/header::headerFragment(${title},${active})"></header>
+<style type="text/css">
+    #page{
+        position:absolute;
+        bottom:0px;
+        width:100%;
+        height:auto;
+        text-align:center;
+        background:#ccc;
+        z-index:2;
+        overflow:hidden;
+    }
+</style>
+<body class="fixed-left">
+<div onclick="toSave()" style="text-align:center;"><span style="background-color: red;text-align: center;font-size: 24px;">新增</span></div>
+<div id="content" style="align-content: center;height: 550px;">
+
+</div>
+<div id="page"></div>
+<script src="http://www.jq22.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="/admin/plugins/jquerypage/jquery.page.js" ></script>
+<script src="/admin/js/consume.js" ></script>
+<link href="/admin/plugins/jquerypage/jquery.page.css" rel="stylesheet"/>
+</body>
+</html>

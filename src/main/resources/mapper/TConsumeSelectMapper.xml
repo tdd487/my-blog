@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tdd.blog.website.dao.TConsumeSelectMapper" >
+  <resultMap id="BaseResultMap" type="com.tdd.blog.website.modal.Vo.TConsumeSelect" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="t_consume_type_option" property="tConsumeTypeOption" jdbcType="VARCHAR" />
+    <result column="t_consume_type_value" property="tConsumeTypeValue" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="updte_user" property="updteUser" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <insert id="saveTconsumeSelect" parameterType="com.tdd.blog.website.modal.Vo.TConsumeSelect">
+    insert into t_consume_select (id, t_consume_type_option, t_consume_type_value,
+      create_time,update_time,create_user,updte_user
+      )
+    values (#{tConsumeSelect.id,jdbcType=VARCHAR}, #{tConsumeSelect.tConsumeTypeOption,jdbcType=VARCHAR}, #{tConsumeSelect.tConsumeTypeValue,jdbcType=VARCHAR},
+       #{tConsumeSelect.createTime,jdbcType=TIMESTAMP}
+      , #{tConsumeSelect.updateTime,jdbcType=TIMESTAMP}
+      , #{tConsumeSelect.createUser,jdbcType=VARCHAR}
+      , #{tConsumeSelect.updteUser,jdbcType=VARCHAR}
+      )
+  </insert>
+  <select id="tConsumeSelectList" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select * from t_consume_select
+  </select>
+</mapper>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:with="title='记账',active='publish'">
+<header th:replace="admin/header::headerFragment(${title},${active})"></header>
+<link th:href="@{/admin/plugins/tagsinput/jquery.tagsinput.css}" rel="stylesheet"/>
+<link th:href="@{/admin/plugins/select2.dist.css/select2-bootstrap.css}" rel="stylesheet"/>
+<link th:href="@{/admin/plugins/toggles/toggles.css}" rel="stylesheet"/>
+<script th:src="@{/admin/layui/layui.all.js}"></script>
+<link href="//cdn.bootcss.com/multi-select/0.9.12/css/multi-select.css" rel="stylesheet"/>
+<link href="//cdn.bootcss.com/select2/3.4.8/select2.min.css" rel="stylesheet"/>
+<link th:href="@{/admin/plugins/md/css/style.css}" rel="stylesheet"/>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<style>
+    #tags_tagsinput {
+        background-color: #fafafa;
+        border: 1px solid #eeeeee;
+    }
+
+    #tags_addTag input {
+        width: 100%;
+    }
+
+    #tags_addTag {
+        margin-top: -5px;
+    }
+</style>
+<body class="fixed-left">
+<h1>增加账单</h1>
+<div><span>账单类型：</span><!--<input id="tConsumeType"/>-->
+    <select id="tConsumeType">
+    </select>
+    <span onclick="addOption()" style="background-color: red">加入选项</span>
+</div>
+<div><span>消费用户：</span><input id="tConsumeUser" value="谭栋栋"/></div>
+<div><span>消费金额：</span><input id="tConsumeMoney"/></div>
+<div><span>消费地点：</span><input id="tConsumePalce"/></div>
+<div onclick="save()" style="background-color: red;text-align: center">保存账单</div>
+<script src="/admin/js/consume_add.js" ></script>
+<script type="application/javascript">
+
+</script>
+</body>
+</html>

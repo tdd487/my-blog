@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tdd.blog.website.dao.TConsumeMapper" >
+  <resultMap id="BaseResultMap" type="com.tdd.blog.website.modal.Vo.TConsume" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="t_consume_type" property="tConsumeType" jdbcType="VARCHAR" />
+    <result column="t_consume_user" property="tConsumeUser" jdbcType="VARCHAR" />
+    <result column="t_consume_date" property="tConsumeDate" jdbcType="TIMESTAMP" />
+    <result column="t_consume_place" property="tConsumePlace" jdbcType="VARCHAR" />
+    <result column="t_consume_money" property="tConsumeMoney" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="updte_user" property="updteUser" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <insert id="saveTconsume" parameterType="com.tdd.blog.website.modal.Vo.TConsume">
+    insert into t_consume (id,
+    t_consume_type,
+    t_consume_user,
+    t_consume_date,
+    t_consume_place,
+    t_consume_money,
+    create_time,
+    update_time,
+    create_user,
+    updte_user
+      )
+    values (#{tConsume.id,jdbcType=VARCHAR},
+    #{tConsume.tConsumeType,jdbcType=VARCHAR},
+    #{tConsume.tConsumeUser,jdbcType=VARCHAR},
+    #{tConsume.tConsumeDate,jdbcType=TIMESTAMP},
+    #{tConsume.tConsumePlace,jdbcType=VARCHAR},
+    #{tConsume.tConsumeMoney,jdbcType=VARCHAR},
+    #{tConsume.createTime,jdbcType=TIMESTAMP},
+    #{tConsume.updateTime,jdbcType=TIMESTAMP},
+    #{tConsume.createUser,jdbcType=INTEGER},
+    #{tConsume.updteUser,jdbcType=INTEGER}
+      )
+  </insert>
+  <select id="tConsumeList" parameterType="java.util.Map" resultMap="BaseResultMap">
+    SELECT
+	c.id,
+	c.t_consume_user,
+	c.t_consume_money,
+	c.t_consume_date,
+	c.t_consume_place,
+	b.t_consume_type_value AS t_consume_type
+FROM
+	t_consume c,
+	t_consume_select b
+WHERE
+	c.t_consume_type IN ( b.t_consume_type_option )
+	limit #{page},#{pageSize}
+  </select>
+</mapper>
