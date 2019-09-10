@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tdd.blog.website.dao.SsqMapper" >
+  <resultMap id="BaseResultMap" type="com.tdd.blog.website.modal.Vo.Ssq" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="red" property="red" jdbcType="VARCHAR" />
+    <result column="blue" property="blue" jdbcType="VARCHAR" />
+    <result column="days" property="days" jdbcType="VARCHAR" />
+    <result column="qihao" property="qihao" jdbcType="VARCHAR" />
+  </resultMap>
+  <select id="findAllSsq" resultMap="BaseResultMap">
+    select * from ssq
+  </select>
+</mapper>
