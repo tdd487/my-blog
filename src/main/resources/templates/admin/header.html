@@ -108,6 +108,11 @@
                        th:class="${active}=='setting'?'waves-effect active':'waves-effect'"><i
                             class="fa fa-gear" aria-hidden="true"></i><span> 系统设置 </span></a>
                 </li>
+                <li th:class="${active}=='setting'?'active':''">
+                    <a th:href="@{/admin/rubbish}"
+                       th:class="${active}=='setting'?'waves-effect active':'waves-effect'"><i
+                            class="fa fa-gear" aria-hidden="true"></i><span> 垃圾分类 </span></a>
+                </li>
             </ul>
             <div class="clearfix"></div>
         </div>

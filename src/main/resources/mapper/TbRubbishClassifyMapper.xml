@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tdd.blog.website.dao.TbRubbishClassifyMapper" >
+  <resultMap id="BaseResultMap" type="com.tdd.blog.website.modal.Vo.TbRubbishClassify" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="primery_key_id" property="primeryKeyId" jdbcType="VARCHAR" />
+    <result column="rubbish_name" property="rubbishName" jdbcType="VARCHAR" />
+    <result column="rubbish_type" property="rubbishType" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="update_user" property="updateUser" jdbcType="VARCHAR" />
+  </resultMap>
+
+
+
+  <insert id="saveTbRubbishClassify" parameterType="com.tdd.blog.website.modal.Vo.TbRubbishClassify">
+    insert into tb_rubbish_classify (primery_key_id,
+    rubbish_name,
+    rubbish_type,
+    create_time,
+    create_user,
+    update_time,
+    update_user
+      )
+    values (#{result.primeryKeyId,jdbcType=VARCHAR},
+    #{result.rubbishName,jdbcType=VARCHAR},
+    #{result.rubbishType,jdbcType=VARCHAR},
+    #{result.createTime,jdbcType=TIMESTAMP},
+    #{result.createUser,jdbcType=VARCHAR},
+    #{result.updateTime,jdbcType=VARCHAR},
+    #{result.updateUser,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <select id="findRubbishByName" resultMap="BaseResultMap">
+    select * from tb_rubbish_classify where rubbish_name = #{result.rubbishName}
+  </select>
+</mapper>

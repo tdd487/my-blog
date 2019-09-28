@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:with="title='系统设置',active='settings'">
+<header th:replace="admin/header::headerFragment(${title},${active})"></header>
+<link th:href="@{/admin/plugins/toggles/toggles.css}" rel="stylesheet"/>
+<body class="fixed-left">
+输入想要保存的垃圾：
+<textarea id="rName"></textarea>
+<button id="save" onclick="search()">查询并保存</button>
+<div>没有保存的垃圾：</div>
+<script src="//cdn.bootcss.com/jquery-toggles/2.0.4/toggles.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+    function search(){
+        var rubbishName = $('#rName').val();
+        $.ajax({
+            url:'/admin/rubbish/getTheRubbishType',
+            type:"POST",
+            data:{rubbishName:rubbishName},
+            success:function (data) {
+                console.log(data)
+                layer.msg("保存成功");
+
+
+            }
+        });
+    }
+
+</script>
+</body>
+</html>
